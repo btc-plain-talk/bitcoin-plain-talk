@@ -13,6 +13,7 @@ const langLabel: Record<string, string> = {
   ki: 'Kikuyu',
   yo: 'Yoruba',
   lwg: 'Wanga',
+  ig: 'Igbo',
 };
 
 const sectionLabels: Record<string, Record<string, string>> = {

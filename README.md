@@ -85,12 +85,12 @@ Current focus includes:
 * Swahili
 * Kikuyu
 * Wanga
+* Igbo
 
 Future languages may include:
 
 * Amharic
 * Hausa
-* Igbo
 * Zulu
 * Xhosa
 * Twi

@@ -16,6 +16,7 @@ export const LANGUAGES = [
   { code: 'ki', name: 'Kikuyu' },
   { code: 'yo', name: 'Yoruba' },
   { code: 'lwg', name: 'Wanga'},
+  { code: 'ig', name: 'Igbo' },
 ] as const;
 
 export type LanguageCode = (typeof LANGUAGES)[number]['code'];

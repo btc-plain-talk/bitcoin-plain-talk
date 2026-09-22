@@ -9,6 +9,7 @@ const languages = [
   { code: 'ki', name: 'Kikuyu' },
   { code: 'yo', name: 'Yoruba' },
   { code: 'lwg', name: 'Wanga' },
+  { code: 'ig', name: 'Igbo' },
 ];
 
 export default function LanguageSelector() {

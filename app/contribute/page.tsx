@@ -108,7 +108,7 @@ export default function ContributePage() {
                   title: "Add a Translation",
                   content: (
                     <p className="mt-4" style={{ color: "#5a3e2b", fontFamily: "var(--font-manrope)" }}>
-                      We need explanations in Swahili, Yoruba, Kikuyu, Wanga, Pidgin, and more.
+                      We need explanations in Swahili, Yoruba, Kikuyu, Wanga, Igbo, Pidgin, and more.
                       If you speak a language, you can contribute — use the{" "}
                       <Link href="/contribute/new" className="font-bold underline" style={{ color: "var(--brand-rust)" }}>
                         Suggest a Term form
