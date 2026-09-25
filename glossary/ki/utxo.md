@@ -2,7 +2,7 @@
 
 **Category:** Transactions
 
-## Plain English
+## Na njira huthu
 
 Ciande cia Bitcoin iria wi nayo na ungihota gutumira, ta mbeca ciatiganite iria iri thĩinĩ wa njaku.
 
@@ -16,7 +16,7 @@ Mũndũ angĩgũtũmĩra 0.03 BTC, na ũngĩ atũme 0.01 BTC, ndũngĩkorwo na "
 
 **"Wallet yakwa irarũndanĩria UTXO nĩguo igũthũkũria gũcaria mbeca nyingi rĩrĩa ngũtũma Bitcoin thutha-inĩ."**
 
-**Ũndũ ũyũ nĩ ũhoro wa atĩa?**
+**What this means:**
 
 Wallet irarũndanĩria UTXO nini nyingi na igacooka ikorwo na UTXO nini nĩnene. Ũguo nĩguo rĩrĩa ũgatũma Bitcoin thutha-inĩ, ũtũmagĩra UTXO nini, na ũndũ ũcio ũgũtũma transaction yako ĩkorwo nĩnini. Transaction ĩrĩ nini nĩyo ĩhĩtũkĩria gũcaria mbeca nĩgũkorwo ĩtĩhũthĩrĩte nafasi nene thĩinĩ wa blockchain.
 

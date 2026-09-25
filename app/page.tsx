@@ -198,7 +198,7 @@ export default function Home() {
               Start Contributing
             </Link>
             <a
-              href="https://github.com/wandiamugo/bitcoin-plain-talk"
+              href="https://github.com/btc-plain-talk/bitcoin-plain-talk"
               target="_blank"
               rel="noopener noreferrer"
               className="hover-rust-tint inline-flex items-center justify-center gap-2 rounded-full border-2 px-8 py-3 font-bold transition-colors"

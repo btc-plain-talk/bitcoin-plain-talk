@@ -44,18 +44,22 @@ const LANGUAGES = [
   {
     code: 'pcm',
     name: 'Nigerian Pidgin',
-    plainEnglishHeader: 'Plain English',
-    analogyHeader: 'Analogy',
-    contextHeader: 'In Context',
-    whyHeader: 'Why It Matters',
-    relatedHeader: 'Related Terms',
-    categoryLabel: 'Category',
-    contextMeaningLabel: 'What this means',
+    plainEnglishHeader: 'Simple Tori',
+    analogyHeader: 'E Be Like',
+    contextHeader: 'How E Dey Used',
+    whyHeader: 'Why E Matter',
+    relatedHeader: 'Wordings Wey Relate',
+    categoryLabel: 'Kain',
+    contextMeaningLabel: 'Wetin dis mean',
   },
   {
     code: 'ki',
     name: 'Kikuyu',
-    plainEnglishHeader: 'Na njira huthu',
+    // NOTE: 'ki' isn't in lib/glossary.ts's MARKDOWN_LABELS yet (it falls
+    // back to English headers), and the two existing ki/ entries use English
+    // headers. Keep this in sync with lib/glossary.ts before changing it, or
+    // newly generated entries won't parse.
+    plainEnglishHeader: 'Plain English',
     analogyHeader: 'Analogy',
     contextHeader: 'In Context',
     whyHeader: 'Why It Matters',
@@ -66,13 +70,13 @@ const LANGUAGES = [
   {
     code: 'yo',
     name: 'Yoruba',
-    plainEnglishHeader: 'Plain English',
-    analogyHeader: 'Analogy',
-    contextHeader: 'In Context',
-    whyHeader: 'Why It Matters',
-    relatedHeader: 'Related Terms',
-    categoryLabel: 'Category',
-    contextMeaningLabel: 'What this means',
+    plainEnglishHeader: 'Ìtumọ̀ Rọrùn',
+    analogyHeader: 'Àkàwé',
+    contextHeader: 'Ní Àpẹẹrẹ',
+    whyHeader: 'Ìdí Tí Ó Fi Ṣe Pàtàkì',
+    relatedHeader: 'Àwọn Ọ̀rọ̀ Tí Ó Jọra',
+    categoryLabel: 'Ẹ̀ka',
+    contextMeaningLabel: 'Ìtumọ̀ èyí',
   },
 ];
 

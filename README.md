@@ -234,7 +234,7 @@ Bitcoin Plain Talk is evolving toward:
 Fork the repository:
 
 ```bash
-git clone https://github.com/your-org/bitcoin-plain-talk.git
+git clone https://github.com/btc-plain-talk/bitcoin-plain-talk.git
 ```
 
 Navigate into the project:

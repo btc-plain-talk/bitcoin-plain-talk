@@ -25,9 +25,9 @@ const MARKDOWN_LABELS = {
   category: {
     en: 'Category',
     sw: 'Kategoria',
-    yo: 'Category',
+    yo: 'Ẹ̀ka',
     lwg: 'Olukongo',
-    pcm: 'Category',
+    pcm: 'Kain',
   },
 
   contextMeaning: {
@@ -42,31 +42,35 @@ const MARKDOWN_LABELS = {
     plainEnglish: {
       en: 'Plain English',
       sw: 'Maelezo Rahisi',
-      yo: 'Plain English',
-      lwg: 'Na njira huthu',
-      pcm: 'Plain English',
+      yo: 'Ìtumọ̀ Rọrùn',
+      // 'Na njira huthu' is Kikuyu, not Wanga — it was mistakenly duplicated
+      // into this slot. Wanga still needs a real translation here; falls
+      // back to English until one is confirmed.
+      lwg: 'Plain English',
+      pcm: 'Simple Tori',
+      ki: 'Na njira huthu',
     },
 
     analogy: {
       en: 'Analogy',
       sw: 'Mfano wa Kila Siku',
-      yo: 'Analogy',
+      yo: 'Àkàwé',
       lwg: 'Olulinganisho',
-      pcm: 'Analogy',
+      pcm: 'E Be Like',
     },
 
     inContext: {
       en: 'In Context',
       sw: 'Jinsi Inavyotumiwa',
-      yo: 'In Context',
+      yo: 'Ní Àpẹẹrẹ',
       lwg: 'Mu Mbeele',
-      pcm: 'In Context',
+      pcm: 'How E Dey Used',
     },
 
     whyItMatters: {
       en: 'Why It Matters',
       sw: 'Kwa Nini Ni Muhimu',
-      yo: 'Why It Matters',
+      yo: 'Ìdí Tí Ó Fi Ṣe Pàtàkì',
       lwg: 'Habwaki ni yákamaro',
       pcm: 'Why E Matter',
     },
@@ -74,26 +78,35 @@ const MARKDOWN_LABELS = {
     relatedTerms: {
       en: 'Related Terms',
       sw: 'Maneno Yanayohusiana',
-      yo: 'Related Terms',
+      yo: 'Àwọn Ọ̀rọ̀ Tí Ó Jọra',
       lwg: 'Amakhuwa akalondana',
-      pcm: 'Related Terms',
+      pcm: 'Wordings Wey Relate',
     },
   },
 } as const;
 
-type SectionKey = keyof typeof MARKDOWN_LABELS.sections;
+export type SectionKey = keyof typeof MARKDOWN_LABELS.sections;
 
 function getSectionHeader(section: SectionKey, language: string): string {
   const labels = MARKDOWN_LABELS.sections[section] as Record<string, string>;
   return `## ${labels[language] ?? labels.en}`;
 }
 
-function getCategoryLabel(language: string): string {
+/**
+ * Same lookup, without the "## " prefix — for callers building their own
+ * markdown (e.g. the /contribute form) rather than parsing existing files.
+ */
+export function getSectionLabel(section: SectionKey, language: string): string {
+  const labels = MARKDOWN_LABELS.sections[section] as Record<string, string>;
+  return labels[language] ?? labels.en;
+}
+
+export function getCategoryLabel(language: string): string {
   const labels = MARKDOWN_LABELS.category as Record<string, string>;
   return labels[language] ?? labels.en;
 }
 
-function getContextMeaningLabel(language: string): string {
+export function getContextMeaningLabel(language: string): string {
   const labels = MARKDOWN_LABELS.contextMeaning as Record<string, string>;
   return labels[language] ?? labels.en;
 }
@@ -199,6 +212,7 @@ function extractContextMeaning(
   const quote = lines
     .slice(0, labelIndex)
     .join('\n')
+    .trim()
     .replace(/^["*]+|["*]+$/g, '')
     .trim();
 
@@ -233,7 +247,7 @@ function extractList(section: string): string[] {
   return section
     .split('\n')
     .map(line => line.trim())
-    .filter(line => line.startsWith('-'))
+    .filter(line => line.startsWith('- '))
     .map(line => line.replace(/^- /, '').trim());
 }
 

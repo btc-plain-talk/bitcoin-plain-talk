@@ -2,7 +2,7 @@
 
 **Olukongo:** Network
 
-## Na njira huthu
+## Plain English
 
 [Wanga explanation here]
 

@@ -205,7 +205,7 @@ export default function ContributePage() {
             </p>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">
               <a
-                href="https://github.com/wandiamugo/bitcoin-plain-talk"
+                href="https://github.com/btc-plain-talk/bitcoin-plain-talk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover-rust-bg inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-bold text-white transition-colors"

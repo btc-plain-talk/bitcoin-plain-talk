@@ -19,21 +19,21 @@ By participating in this project, you agree to abide by our code of conduct. Ple
 ## 🛠️ Local Development Setup
 
 ### 1. Fork the repository
-* On your browser search [https://github.com/wandiamugo/bitcoin-plain-talk](https://github.com/wandiamugo/bitcoin-plain-talk)
+* On your browser search [https://github.com/btc-plain-talk/bitcoin-plain-talk](https://github.com/btc-plain-talk/bitcoin-plain-talk)
 * Click on fork, and proceed creating a fork of the repository set up in your github account
 
 
 ### 2. Clone
 Fork the repository on GitHub and clone your fork locally:
 \`\`\`bash
-git clone https://github.com/wandiamugo/bitcoin-plain-talk
+git clone https://github.com/btc-plain-talk/bitcoin-plain-talk
 cd bitcoin-plain-talk
 \`\`\`
 
 ### 3. Set Up Upstream
 Keep your local copy synced with the original project:
 \`\`\`bash
-git remote add upstream https://github.com/wandiamugo/bitcoin-plain-talk.git
+git remote add upstream https://github.com/btc-plain-talk/bitcoin-plain-talk.git
 \`\`\`
 
 ### 4. Fetch the latest changes

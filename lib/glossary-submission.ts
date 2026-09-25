@@ -1,3 +1,5 @@
+import { getCategoryLabel, getContextMeaningLabel, getSectionLabel } from './glossary';
+
 export const CATEGORIES = [
   'Community',
   'Economy',
@@ -51,29 +53,31 @@ export function renderTermMarkdown(submission: TermSubmission): string {
     .map((t) => `- ${t}`)
     .join('\n');
 
+  const { language } = submission;
+
   return `# ${submission.term}
 
-**Category:** ${submission.category}
+**${getCategoryLabel(language)}:** ${submission.category}
 
-## Plain English
+## ${getSectionLabel('plainEnglish', language)}
 
 ${submission.plainEnglish}
 
-## Analogy
+## ${getSectionLabel('analogy', language)}
 
 ${submission.analogy}
 
-## In Context
+## ${getSectionLabel('inContext', language)}
 
 *"${submission.inContextQuote}"*
 
-**What this means:** ${submission.inContextMeaning}
+**${getContextMeaningLabel(language)}:** ${submission.inContextMeaning}
 
-## Why It Matters
+## ${getSectionLabel('whyItMatters', language)}
 
 ${submission.whyItMatters}
 
-## Related Terms
+## ${getSectionLabel('relatedTerms', language)}
 
 ${relatedTermsBlock}
 
