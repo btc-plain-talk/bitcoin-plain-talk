@@ -302,7 +302,7 @@ export function getAllTerms(
 
   const fileNames = fs
     .readdirSync(langPath)
-    .filter(file => file.endsWith('.md'));
+    .filter(file => file.endsWith('.md') && !file.startsWith('_'));
 
   const terms: Term[] = fileNames.map(fileName => {
 
