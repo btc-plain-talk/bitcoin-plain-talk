@@ -1,0 +1,71 @@
+name: Translation
+description: Translate glossary terms into an African language, or review an existing translation.
+title: "[Translation] <language>: <terms>"
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping make Bitcoin understandable in more languages!
+
+        Before you start, read the [Translation Guide](https://github.com/btc-plain-talk/bitcoin-plain-talk/blob/main/docs/TRANSLATION_GUIDE.md). Each translation uses the same file name as the English entry, e.g. `glossary/en/seed-phrase.md` → `glossary/yo/seed-phrase.md`, and follows [`glossary/_template.md`](https://github.com/btc-plain-talk/bitcoin-plain-talk/blob/main/glossary/_template.md).
+
+        No GitHub experience? You can also use the [contribute form](https://bitcoin-plain-talk.vercel.app/contribute).
+  - type: dropdown
+    id: task
+    attributes:
+      label: What would you like to do?
+      options:
+        - Translate terms that are not yet in my language
+        - Review or improve existing translations
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: The language you will translate into.
+      placeholder: e.g. Hausa, Yoruba, Swahili
+    validations:
+      required: true
+  - type: input
+    id: dialect
+    attributes:
+      label: Dialect or region
+      description: Which dialect or region's wording will you use? Leave blank if it doesn't apply.
+      placeholder: e.g. Kano Hausa, Coastal Swahili
+  - type: textarea
+    id: terms
+    attributes:
+      label: Terms
+      description: Which terms? Use the file names from `glossary/en/`, one per line.
+      placeholder: |
+        wallet
+        private-key
+        seed-phrase
+    validations:
+      required: true
+  - type: dropdown
+    id: fluency
+    attributes:
+      label: How well do you speak this language?
+      options:
+        - Native speaker
+        - Fluent
+        - Learning
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Words with no direct translation, questions for reviewers, etc.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you start
+      options:
+        - label: I checked that no one else is already working on these terms in this language.
+          required: true
+        - label: I will not include investment advice, price predictions, or requests for seed phrases or private keys.
+          required: true

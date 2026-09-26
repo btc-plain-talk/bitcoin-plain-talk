@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Suggest a term without GitHub
+    url: https://bitcoin-plain-talk.vercel.app/contribute
+    about: Use the web form to add or translate a term. It opens a pull request for you.
+  - name: Translation Guide
+    url: https://github.com/btc-plain-talk/bitcoin-plain-talk/blob/main/docs/TRANSLATION_GUIDE.md
+    about: How translations are structured and reviewed.

@@ -1,0 +1,54 @@
+name: Bug report
+description: Something on the website is broken or a glossary entry is wrong.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please **never include seed phrases, private keys, or passwords** in an issue.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - Website bug (page broken, button not working, layout problem)
+        - Incorrect or misleading Bitcoin information
+        - Translation error
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page or file
+      description: The page URL or the glossary file where you saw the problem.
+      placeholder: e.g. https://bitcoin-plain-talk.vercel.app/glossary/utxo?lang=sw
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see? For wrong information, quote the text.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce (website bugs)
+      placeholder: |
+        1. Go to the glossary
+        2. Switch the language to Yoruba
+        3. Click on "Wallet"
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser (website bugs)
+      placeholder: e.g. Android phone, Chrome

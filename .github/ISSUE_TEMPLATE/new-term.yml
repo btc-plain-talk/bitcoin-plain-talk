@@ -1,0 +1,55 @@
+name: New term
+description: Suggest a Bitcoin concept that is missing from the glossary.
+title: "[New term] <term>"
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening this, please [search the glossary](https://bitcoin-plain-talk.vercel.app/glossary) to check the term isn't already there, possibly under a slightly different name (e.g. "DCA" is listed as "Dollar-Cost Averaging").
+
+        New entries follow [`glossary/_template.md`](https://github.com/btc-plain-talk/bitcoin-plain-talk/blob/main/glossary/_template.md).
+  - type: input
+    id: term
+    attributes:
+      label: Term
+      placeholder: e.g. Multisig
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Community
+        - Economy
+        - Mining
+        - Network
+        - Privacy
+        - Security
+        - Technology
+        - Transactions
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should it be added?
+      description: Where do newcomers run into this term, and what makes it confusing?
+    validations:
+      required: true
+  - type: textarea
+    id: draft
+    attributes:
+      label: Draft explanation (optional)
+      description: A plain-language explanation or an everyday analogy, if you have one in mind.
+  - type: dropdown
+    id: write-it
+    attributes:
+      label: Would you like to write this entry yourself?
+      options:
+        - Yes, please assign it to me
+        - No, I'm only suggesting it
+    validations:
+      required: true
