@@ -1,4 +1,4 @@
-import { getCategoryLabel, getContextMeaningLabel, getSectionLabel } from './glossary';
+import { getCategoryLabel, getContextMeaningLabel, getSectionLabel } from './glossary-labels';
 
 export const CATEGORIES = [
   'Community',
