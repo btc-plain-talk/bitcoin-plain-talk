@@ -131,21 +131,27 @@ Better data leads to better AI tools for African communities.
 ```text
 bitcoin-plain-talk/
 ├── glossary/
-|   ├── en/
-│   ├── bitcoin-wallet.md
-│   ├── seed-phrase.md
-│   ├── mempool.md
-│   ├── utxo.md
-│   └── lightning-network.md
-│
-│   ├── yoruba/
-│   ├── pidgin/
-│   ├── swahili/
-│   └── kikuyu/
-│
-│
+│   ├── _template.md      # Template every entry follows
+│   ├── en/               # English (source entries)
+│   │   ├── wallet.md
+│   │   ├── seed-phrase.md
+│   │   ├── mempool.md
+│   │   ├── utxo.md
+│   │   └── lightning-network.md
+│   ├── sw/               # Swahili
+│   ├── pcm/              # Nigerian Pidgin
+│   ├── yo/               # Yoruba
+│   ├── ki/               # Kikuyu
+│   ├── ig/               # Igbo
+│   └── lwg/              # Wanga
+├── app/                  # Next.js website
+├── lib/                  # Glossary parsing and contribution logic
+├── scripts/              # Glossary generator and dataset export
+├── docs/                 # Contributor guides
 └── README.md
 ```
+
+A translation must use the **same file name as the English entry**. For example, the Yoruba version of `glossary/en/seed-phrase.md` goes in `glossary/yo/seed-phrase.md`. The website uses the file name to link a term across languages.
 
 ## Who Can Contribute?
 
@@ -248,9 +254,11 @@ Choose a concept, language, or improvement area and start contributing.
 
 Example:
 
-cd kikuyu
+```bash
+cd ki
+```
 
-Add a translated file in the folder
+Add a translated file in the folder, using the same file name as the English entry.
 
 ## License
 
