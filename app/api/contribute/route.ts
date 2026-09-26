@@ -159,7 +159,7 @@ export async function POST(request: NextRequest) {
       title: `content: add ${language.name} entry for ${body.term}`,
       head: branchName,
       base: baseBranch,
-      body: `Submitted through the [/contribute](https://www.bitcoinplaintalk.com/contribute) web form.\n\nLanguage: ${language.name}\nTerm: ${body.term}\nMode: ${body.mode === 'translate' ? 'Translation of existing entry' : 'New entry'}${attribution}\n\nPlease review for accuracy, tone, and formatting before merging.`,
+      body: `Submitted through the [/contribute](https://bitcoin-plain-talk.vercel.app/contribute) web form.\n\nLanguage: ${language.name}\nTerm: ${body.term}\nMode: ${body.mode === 'translate' ? 'Translation of existing entry' : 'New entry'}${attribution}\n\nPlease review for accuracy, tone, and formatting before merging.`,
     });
 
     return NextResponse.json({ url: pr.html_url }, { status: 201 });
