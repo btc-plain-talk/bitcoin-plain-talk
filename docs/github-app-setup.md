@@ -46,7 +46,7 @@ URL, e.g. `https://github.com/settings/installations/12345678` → `12345678`.
 ## 4. Set environment variables
 
 Copy these into your deployment's environment variables (e.g. Vercel project
-settings) and into a local `.env` for development — see `.env.example`:
+settings) and into a local `.env.local` for development — see `.env.example`:
 
 - `GITHUB_APP_ID` — found on the app's settings page ("App ID")
 - `GITHUB_APP_PRIVATE_KEY` — the full contents of the `.pem` file. Most env
