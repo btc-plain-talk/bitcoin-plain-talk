@@ -74,6 +74,8 @@ If a technical term is necessary, explain it in plain language. Glossary entries
 
 ## Reviews and Conduct
 
+Everyone taking part in this project is expected to follow our [Code of Conduct](./CODE_OF_CONDUCT.md). To report a problem, email **bitcoinplaintalk@pm.me**.
+
 Review the contribution, not the contributor. Give specific, respectful feedback and remember that many contributors and readers may be new to Bitcoin or open source.
 
 When reviewing content, check:
