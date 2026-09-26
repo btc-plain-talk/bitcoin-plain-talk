@@ -80,10 +80,12 @@ export default function GlossaryPageContent() {
   const categories = Object.keys(termsByCategory).sort();
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--brand-sand)' }}>
+    <div className="flex min-h-screen flex-col" style={{ background: 'var(--brand-sand)' }}>
       <SiteHeader sticky />
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* flex-1 keeps the footer below the fold while terms load, so it
+          doesn't appear mid-screen and then jump down. */}
+      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-12 sm:px-6 lg:px-8">
         {/* Page Header */}
         <div className="mb-12 text-center">
           <p
