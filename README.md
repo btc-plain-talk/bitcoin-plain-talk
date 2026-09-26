@@ -260,6 +260,73 @@ cd ki
 
 Add a translated file in the folder, using the same file name as the English entry.
 
+## Run Locally
+
+You only need this if you want to run the website on your computer. To add or translate glossary entries, editing the Markdown files is enough.
+
+### 1. Install Node.js
+
+You need **Node.js 20.9 or newer**. Node 20, 22 and 26 have all been tested. Check your version with:
+
+```bash
+node -v
+```
+
+If it is older than 20.9, install a newer version from [nodejs.org](https://nodejs.org/) (the LTS version is a good choice).
+
+### 2. Install dependencies
+
+From the project folder:
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Copy the example file:
+
+```bash
+cp .env.example .env.local
+```
+
+The glossary pages work without changing anything in this file. The variables are only needed for these features:
+
+| Variable | What it is for | Do I need it? |
+| :--- | :--- | :--- |
+| `ANTHROPIC_API_KEY` | API key for Claude, used by the glossary generator script (`scripts/generate-glossary.mjs`) to write and translate entries | Only if you run the generator |
+| `GITHUB_APP_ID` | ID of the GitHub App that opens pull requests from the `/contribute` form | Only to test submitting the `/contribute` form |
+| `GITHUB_APP_PRIVATE_KEY` | Private key (`.pem` contents) for that GitHub App. Put it on one line with `\n` in place of line breaks | Same as above |
+| `GITHUB_APP_INSTALLATION_ID` | ID of the GitHub App's installation on the repository | Same as above |
+| `GITHUB_REPO_OWNER` | Owner of the repository the `/contribute` form opens pull requests against | Same as above. Point it at your fork when testing |
+| `GITHUB_REPO_NAME` | Name of that repository | Same as above |
+
+See [docs/github-app-setup.md](./docs/github-app-setup.md) for how to create the GitHub App.
+
+`.env.local` is ignored by git. Never commit real keys.
+
+The generator script does not read `.env.local` by itself, so pass it in when you run it:
+
+```bash
+node --env-file=.env.local scripts/generate-glossary.mjs --term "wallet"
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser. The page reloads when you save changes, including edits to glossary files.
+
+### Other useful commands
+
+| Command | What it does |
+| :--- | :--- |
+| `npm run lint` | Checks the code for problems |
+| `npm run build` | Builds the production version of the site |
+| `npm run export:dataset` | Exports glossary entries to `datasets/` as training data |
+
 ## License
 
 MIT License
