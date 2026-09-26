@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import SiteHeader from '@/components/SiteHeader';
 import { CATEGORIES, LANGUAGES, slugify } from '@/lib/glossary-submission';
+import { getCategoryLabel, getContextMeaningLabel, getSectionLabel, type SectionKey } from '@/lib/glossary-labels';
 
 interface EnglishTerm {
   slug: string;
@@ -114,6 +115,27 @@ export default function NewSubmissionPage() {
   const candidateSlug = mode === 'translate' ? effectiveSlug : slugify(term);
   const isDuplicate = candidateSlug !== '' && existingSlugs.has(candidateSlug);
   const languageName = LANGUAGES.find((l) => l.code === language)?.name ?? language;
+
+  // Show field labels as the section headings the entry will be saved under,
+  // in the selected language. The English label moves into the hint so
+  // contributors still know what each field is for. Languages without a
+  // translated heading keep the English label.
+  function fieldText(heading: string, englishHeading: string, englishLabel: string, hint?: string) {
+    if (language === 'en' || heading === englishHeading) {
+      return { label: englishLabel, hint };
+    }
+    return { label: heading, hint: hint ? `${englishLabel} · ${hint}` : englishLabel };
+  }
+  const sectionText = (section: SectionKey, englishLabel: string, hint?: string) =>
+    fieldText(getSectionLabel(section, language), getSectionLabel(section, 'en'), englishLabel, hint);
+
+  const categoryText = fieldText(getCategoryLabel(language), getCategoryLabel('en'), 'Category');
+  const plainText = sectionText('plainEnglish', 'Plain English explanation', 'One clear sentence, no jargon');
+  const analogyText = sectionText('analogy', 'Analogy', 'A relatable comparison from everyday life');
+  const exampleText = sectionText('inContext', 'Example sentence', 'An example sentence you might actually see or hear using this term');
+  const meaningText = fieldText(getContextMeaningLabel(language), getContextMeaningLabel('en'), 'What that example means');
+  const whyText = sectionText('whyItMatters', 'Why it matters', 'Why should someone new to Bitcoin care?');
+  const relatedText = sectionText('relatedTerms', 'Related terms', 'Comma-separated, e.g. Satoshi, Wallet, Blockchain');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -328,7 +350,7 @@ export default function NewSubmissionPage() {
             </div>
           )}
 
-          <Field label="Category">
+          <Field label={categoryText.label} hint={categoryText.hint}>
             <select
               required
               value={category}
@@ -344,7 +366,7 @@ export default function NewSubmissionPage() {
             </select>
           </Field>
 
-          <Field label="Plain English explanation" hint="One clear sentence, no jargon">
+          <Field label={plainText.label} hint={plainText.hint}>
             <textarea
               required
               rows={2}
@@ -355,7 +377,7 @@ export default function NewSubmissionPage() {
             />
           </Field>
 
-          <Field label="Analogy" hint="A relatable comparison from everyday life">
+          <Field label={analogyText.label} hint={analogyText.hint}>
             <textarea
               required
               rows={3}
@@ -366,7 +388,7 @@ export default function NewSubmissionPage() {
             />
           </Field>
 
-          <Field label="Example sentence" hint='An example sentence you might actually see or hear using this term'>
+          <Field label={exampleText.label} hint={exampleText.hint}>
             <input
               required
               value={inContextQuote}
@@ -376,7 +398,7 @@ export default function NewSubmissionPage() {
             />
           </Field>
 
-          <Field label="What that example means">
+          <Field label={meaningText.label} hint={meaningText.hint}>
             <textarea
               required
               rows={2}
@@ -387,7 +409,7 @@ export default function NewSubmissionPage() {
             />
           </Field>
 
-          <Field label="Why it matters" hint="Why should someone new to Bitcoin care?">
+          <Field label={whyText.label} hint={whyText.hint}>
             <textarea
               required
               rows={2}
@@ -398,7 +420,7 @@ export default function NewSubmissionPage() {
             />
           </Field>
 
-          <Field label="Related terms" hint="Comma-separated, e.g. Satoshi, Wallet, Blockchain">
+          <Field label={relatedText.label} hint={relatedText.hint}>
             <input
               value={relatedTerms}
               onChange={(e) => setRelatedTerms(e.target.value)}
