@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "generate": "node scripts/generate-glossary.mjs",
-    "export:dataset": "node scripts/export-training-dataset.mjs"
+    "export:dataset": "node scripts/export-training-dataset.mjs",
+    "validate:datasets": "node scripts/validate-datasets.mjs"
   },
   "dependencies": {
     "@octokit/auth-app": "^8.2.0",
