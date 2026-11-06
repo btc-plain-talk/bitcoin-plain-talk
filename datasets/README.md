@@ -52,6 +52,19 @@ it grows automatically as more terms get translated:
 npm run export:dataset -- --lang sw
 ```
 
+## Validating
+
+Check that every dataset file is well-formed and up to date with the glossary:
+
+```bash
+npm run validate:datasets
+```
+
+It verifies that each line is valid JSON with all four fields, that every
+`source_url` points to an existing glossary file, that each term has all
+four variants, and that the number of terms matches `glossary/<lang>/`.
+It exits with code 1 and a message per problem if anything fails.
+
 ## License
 
 CC BY-SA 4.0, matching the license already carried by the underlying
